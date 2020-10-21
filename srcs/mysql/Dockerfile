@@ -3,9 +3,9 @@ FROM alpine:latest
 RUN apk update
 RUN apk add mysql mysql-client
 
-RUN mkdir -p /run/mysqld
+RUN chown -R mysql:mysql /var/lib/mysql
 
-COPY msql.cnf /etc/mysql/
+COPY mariadb.cnf /etc/mysql/mariadb.cnf
 COPY mysql-init /tmp/
 COPY entrypoint.sh /tmp/
 

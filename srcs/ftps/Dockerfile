@@ -4,7 +4,7 @@ RUN apk upgrade
 RUN apk add openssl vsftpd
 RUN apk add jq curl
 ENV API_URL=https://kubernetes
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj '/C=RU/ST=Moscow/O=21school/CN=Walline' -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.crt
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj '/C=RU/ST=Moscow/O=21school/CN=ccaptain' -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.crt
 RUN mkdir -p /var/ftp
 
 COPY vsftpd.conf /etc/vsftpd/vsftpd.conf

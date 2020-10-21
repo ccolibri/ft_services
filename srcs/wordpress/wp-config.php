@@ -20,7 +20,7 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wp_base' );
+define( 'DB_NAME', 'wordpress' );
 
 /** MySQL database username */
 define( 'DB_USER', 'admin' );
@@ -29,9 +29,9 @@ define( 'DB_USER', 'admin' );
 define( 'DB_PASSWORD', 'admin' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'mysql-service' );
-define( 'WP_HOME', 'http://192.168.99.98:5050/' ); # EXTERNAL IP
-define( 'WP_SITEURL', 'http://192.168.99.98:5050/' ); # EXTERNAL IP
+define( 'DB_HOST', 'mariadb-service' );
+define( 'WP_HOME', 'http://192.168.99.243:5050/' ); # EXTERNAL IP
+define( 'WP_SITEURL', 'http://192.168.99.243:5050/' ); # EXTERNAL IP
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );

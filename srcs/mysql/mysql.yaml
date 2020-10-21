@@ -1,12 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql-service
-  labels:
-    app: mysql
+  name: mariadb-service
 spec:
   selector:
-    app: mysql
+    app: mariadb
   type: ClusterIP
   ports:
     - port: 3306
@@ -16,47 +14,61 @@ spec:
 ---
 
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mariadb-pv
+  labels:
+    type: local
+spec:
+  capacity: 
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/mariadb"
+
+---
+
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-pvc
-  labels:
-    app: mysql
+  name: mariadb-pv-claim
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
-      
----
+      storage: 500Mi
 
+---
+  
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-deployment
+  name: mariadb-deployment
   labels:
-    app: mysql
+    app: mariadb
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: mysql
-  replicas: 1
+      app: mariadb
   template:
     metadata:
-      name: mysql-pod
       labels:
-        app: mysql
+        app: mariadb
     spec:
       containers:
-        - name: mysql-container
-          image: mysql-image
-          imagePullPolicy: Never
-          ports:
-            - containerPort: 3306
-          volumeMounts:
-            - name: mysql
-              mountPath: /var/lib/mysql/
+      - name: mariadb
+        image: mariadb-image
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: mariadb
+          mountPath: /var/lib/mysql
       volumes:
-        - name: mysql
-          persistentVolumeClaim:
-            claimName: mysql-pvc
+      - name: mariadb
+        persistentVolumeClaim:
+          claimName: mariadb-pv-claim
+
