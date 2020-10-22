@@ -59,7 +59,7 @@ spec:
         app: mariadb
     spec:
       containers:
-      - name: mariadb
+      - name: mariadb-container
         image: mariadb-image
         imagePullPolicy: Never
         ports:
