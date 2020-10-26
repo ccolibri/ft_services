@@ -5,7 +5,7 @@ RUN apk add mysql mysql-client
 
 RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld
 
-COPY mariadb.cnf /etc/mariadb.cnf
+COPY mariadb-server.cnf /etc/my.cnf.d/mariadb-server.cnf
 COPY mysql-init /tmp/
 COPY entrypoint.sh /tmp/
 

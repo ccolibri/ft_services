@@ -12,9 +12,7 @@ spec:
     - port: 5000
       name: port
       targetPort: 5000
-      
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:

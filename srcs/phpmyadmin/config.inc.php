@@ -1,23 +1,19 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * phpMyAdmin sample configuration, you can use it as base for
  * manual configuration. For easier setup you can use setup/
  *
  * All directives are explained in documentation in the doc/ folder
  * or at <https://docs.phpmyadmin.net/>.
- *
- * @package PhpMyAdmin
  */
-/*
-** declare(strict_types=1);
-*/
+
+declare(strict_types=1);
 
 /**
  * This is needed for cookie based authentication to encrypt password in
  * cookie. Needs to be 32 chars long.
  */
-$cfg['blowfish_secret'] = 'M8gO3/xWupDq-gqH;zZAs;GaiKbRwSU.'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+$cfg['blowfish_secret'] = '*uIoEpe$]KLekjurE3#4$5Mns|khfn@9'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 
 /**
  * Servers configuration
@@ -31,12 +27,12 @@ $i++;
 /* Authentication type */
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
 /* Server parameters */
-$cfg['Servers'][$i]['host'] = 'mariadb-service';
-$cfg['Servers'][$i]['port'] = '3306';
-$cfg['Servers'][$i]['user'] = 'admin';
-$cfg['Servers'][$i]['password'] = 'admin';
+$cfg['Servers'][$i]['host'] = '10.96.100.10';
+$cfg['Servers'][$i]['port'] = 3306;
+$cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['compress'] = false;
-$cfg['Servers'][$i]['AllowNoPassword'] = false;
+$cfg['Servers'][$i]['AllowNoPassword'] = true;
+$cfg['Servers'][$i]['extension'] = 'mysqli';
 
 /**
  * phpMyAdmin configuration storage settings.
@@ -46,29 +42,30 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
 // $cfg['Servers'][$i]['controlhost'] = '';
 // $cfg['Servers'][$i]['controlport'] = '';
 //$cfg['Servers'][$i]['controluser'] = 'ccaptain';
-//$cfg['Servers'][$i]['controlpass'] = 'ccaptain';
+//$cfg['Servers'][$i]['controlpass'] = 'admin';
 
 /* Storage database and tables */
-// $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
-// $cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
-// $cfg['Servers'][$i]['relation'] = 'pma__relation';
-// $cfg['Servers'][$i]['table_info'] = 'pma__table_info';
-// $cfg['Servers'][$i]['table_coords'] = 'pma__table_coords';
-// $cfg['Servers'][$i]['pdf_pages'] = 'pma__pdf_pages';
-// $cfg['Servers'][$i]['column_info'] = 'pma__column_info';
-// $cfg['Servers'][$i]['history'] = 'pma__history';
-// $cfg['Servers'][$i]['table_uiprefs'] = 'pma__table_uiprefs';
-// $cfg['Servers'][$i]['tracking'] = 'pma__tracking';
-// $cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
-// $cfg['Servers'][$i]['recent'] = 'pma__recent';
-// $cfg['Servers'][$i]['favorite'] = 'pma__favorite';
-// $cfg['Servers'][$i]['users'] = 'pma__users';
-// $cfg['Servers'][$i]['usergroups'] = 'pma__usergroups';
-// $cfg['Servers'][$i]['navigationhiding'] = 'pma__navigationhiding';
-// $cfg['Servers'][$i]['savedsearches'] = 'pma__savedsearches';
-// $cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
-// $cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
-// $cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
+//$cfg['Servers'][$i]['pmadb'] = 'wpdb';
+//$cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
+//$cfg['Servers'][$i]['relation'] = 'pma__relation';
+//$cfg['Servers'][$i]['table_info'] = 'pma__table_info';
+//$cfg['Servers'][$i]['table_coords'] = 'pma__table_coords';
+//$cfg['Servers'][$i]['pdf_pages'] = 'pma__pdf_pages';
+//$cfg['Servers'][$i]['column_info'] = 'pma__column_info';
+//$cfg['Servers'][$i]['history'] = 'pma__history';
+//$cfg['Servers'][$i]['table_uiprefs'] = 'pma__table_uiprefs';
+//$cfg['Servers'][$i]['tracking'] = 'pma__tracking';
+//$cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
+//$cfg['Servers'][$i]['recent'] = 'pma__recent';
+//$cfg['Servers'][$i]['favorite'] = 'pma__favorite';
+//$cfg['Servers'][$i]['users'] = 'pma__users';
+//$cfg['Servers'][$i]['usergroups'] = 'pma__usergroups';
+//$cfg['Servers'][$i]['navigationhiding'] = 'pma__navigationhiding';
+//$cfg['Servers'][$i]['savedsearches'] = 'pma__savedsearches';
+//$cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
+//$cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
+//$cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
+//$cfg['Servers'][$i]['extension'] = 'mysql';
 
 /**
  * End of servers configuration
@@ -158,3 +155,4 @@ $cfg['SaveDir'] = '';
  * You can find more configuration options in the documentation
  * in the doc/ folder or at <https://docs.phpmyadmin.net/>.
  */
+?>

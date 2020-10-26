@@ -1,3 +1,5 @@
+#!/bin/sh
+
 minikube start --driver=hyperkit --cpus=2 --memory='3072'
 minikube addons enable metrics-server
 minikube addons enable dashboard

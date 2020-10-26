@@ -1,59 +1,81 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ftps-svc
-  annotations:
-    metallb.universe.tf/address-pool: ftps-ip
-  labels:
-    app: ftps
+  name: ftps-service
 spec:
-  type: LoadBalancer
   selector:
-    app: ftps
+    app: vsftpd
   ports:
-  - name: ftp-data
-    port: 20
-  - name: ftp-connection
-    port: 21
-  - name: pftp-data-0
-    port: 30000
-
+    - name: port20
+      protocol: TCP
+      port: 20
+      targetPort: 20
+    - name: active
+      protocol: TCP
+      port: 21
+      targetPort: 21
+    - name: passive0
+      protocol: TCP
+      port: 30000 
+      targetPort: 3000
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: vsftpd-pv
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/ftps"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vsftpd-pv-claim
+  labels:
+    app: vsftpd
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ftps
+  name: ftps-deployment
   labels:
-    app: ftps
+    app: vsftpd
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: ftps
-  strategy:
-    type: Recreate
+      app: vsftpd
   template:
     metadata:
       labels:
-        app: ftps
+        app: vsftpd
     spec:
       containers:
       - name: ftps
         image: ftps-image
         imagePullPolicy: Never
         ports:
-        - containerPort: 20
-        - containerPort: 21
-        - containerPort: 30000
-        env:
-        - name: USER
-          value: peer
-        - name: PASS
-          value: pass
-        - name: POD_NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
-        - name: HOSTNAME 
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.name
+                - containerPort: 20
+                - containerPort: 21
+                - containerPort: 30000
+        volumeMounts:
+        - name: ftps
+          mountPath: /var/lib/ftp
+      volumes:
+      - name: ftps
+        persistentVolumeClaim:
+          claimName: vsftpd-pv-claim
+  
