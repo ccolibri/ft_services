@@ -1,32 +1,9 @@
--- phpMyAdmin SQL Dump
--- version 4.9.0.1
--- https://www.phpmyadmin.net/
---
--- Хост: localhost
--- Время создания: Май 31 2020 г., 11:01
--- Версия сервера: 10.3.22-MariaDB-0+deb10u1
--- Версия PHP: 7.3.14-1~deb10u1
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- База данных: `wordpress`
---
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `Test`
---
 
 CREATE TABLE `Test` (
   `Test1` int(1) NOT NULL,
@@ -35,12 +12,6 @@ CREATE TABLE `Test` (
   `Test4` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `wp_commentmeta`
---
-
 CREATE TABLE `wp_commentmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
   `comment_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
@@ -48,11 +19,6 @@ CREATE TABLE `wp_commentmeta` (
   `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `wp_comments`
---
 
 CREATE TABLE `wp_comments` (
   `comment_ID` bigint(20) UNSIGNED NOT NULL,
@@ -72,18 +38,9 @@ CREATE TABLE `wp_comments` (
   `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Дамп данных таблицы `wp_comments`
---
-
 INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `comment_author_email`, `comment_author_url`, `comment_author_IP`, `comment_date`, `comment_date_gmt`, `comment_content`, `comment_karma`, `comment_approved`, `comment_agent`, `comment_type`, `comment_parent`, `user_id`) VALUES
 (1, 1, 'A WordPress Commenter', 'wapuu@wordpress.example', 'https://wordpress.org/', '', '2020-05-31 10:37:43', '2020-05-31 10:37:43', 'Hi, this is a comment.\nTo get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.\nCommenter avatars come from <a href=\"https://gravatar.com\">Gravatar</a>.', 0, 'post-trashed', '', '', 0, 0);
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `wp_links`
---
 
 CREATE TABLE `wp_links` (
   `link_id` bigint(20) UNSIGNED NOT NULL,
@@ -101,12 +58,6 @@ CREATE TABLE `wp_links` (
   `link_rss` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `wp_options`
---
-
 CREATE TABLE `wp_options` (
   `option_id` bigint(20) UNSIGNED NOT NULL,
   `option_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -114,17 +65,14 @@ CREATE TABLE `wp_options` (
   `autoload` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Дамп данных таблицы `wp_options`
---
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
 (1, 'siteurl', 'https://localhost/wordpress', 'yes'),
 (2, 'home', 'https://localhost/wordpress', 'yes'),
-(3, 'blogname', 'My awesome superturbosite', 'yes'),
+(3, 'blogname', 'Ccaptain site', 'yes'),
 (4, 'blogdescription', 'Just another WordPress site', 'yes'),
 (5, 'users_can_register', '0', 'yes'),
-(6, 'admin_email', 'rockettoalgeria@gmail.com', 'yes'),
+(6, 'admin_email', 'ccaptain@gmail.com', 'yes'),
 (7, 'start_of_week', '1', 'yes'),
 (8, 'use_balanceTags', '0', 'yes'),
 (9, 'use_smilies', '1', 'yes'),
@@ -248,11 +196,6 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (132, '_site_transient_update_themes', 'O:8:\"stdClass\":4:{s:12:\"last_checked\";i:1590922424;s:7:\"checked\";a:3:{s:14:\"twentynineteen\";s:3:\"1.5\";s:15:\"twentyseventeen\";s:3:\"2.3\";s:12:\"twentytwenty\";s:3:\"1.3\";}s:8:\"response\";a:0:{}s:12:\"translations\";a:0:{}}', 'no'),
 (134, 'theme_mods_twentytwenty', 'a:1:{s:18:\"custom_css_post_id\";i:-1;}', 'yes');
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `wp_postmeta`
---
 
 CREATE TABLE `wp_postmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
@@ -260,10 +203,6 @@ CREATE TABLE `wp_postmeta` (
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `wp_postmeta`
---
 
 INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
 (1, 2, '_wp_page_template', 'default'),
@@ -275,12 +214,6 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (7, 6, '_edit_lock', '1590922810:1'),
 (8, 7, '_wp_attached_file', '2020/05/J0a8FyR.mp4'),
 (9, 7, '_wp_attachment_metadata', 'a:10:{s:7:\"bitrate\";i:947111;s:8:\"filesize\";i:577632;s:9:\"mime_type\";s:15:\"video/quicktime\";s:6:\"length\";i:5;s:16:\"length_formatted\";s:4:\"0:05\";s:5:\"width\";i:640;s:6:\"height\";i:568;s:10:\"fileformat\";s:3:\"mp4\";s:10:\"dataformat\";s:9:\"quicktime\";s:17:\"created_timestamp\";i:-2082844800;}');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `wp_posts`
---
 
 CREATE TABLE `wp_posts` (
   `ID` bigint(20) UNSIGNED NOT NULL,
@@ -308,10 +241,6 @@ CREATE TABLE `wp_posts` (
   `comment_count` bigint(20) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Дамп данных таблицы `wp_posts`
---
-
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
 (1, 1, '2020-05-31 10:37:43', '2020-05-31 10:37:43', '<!-- wp:paragraph -->\n<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n<!-- /wp:paragraph -->', 'Hello world!', '', 'trash', 'open', 'open', '', 'hello-world__trashed', '', '', '2020-05-31 10:54:03', '2020-05-31 10:54:03', '', 0, 'https://localhost/wordpress/?p=1', 0, 'post', '', 1),
 (2, 1, '2020-05-31 10:37:43', '2020-05-31 10:37:43', '<!-- wp:paragraph -->\n<p>This is an example page. It\'s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>Hi there! I\'m a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin\' caught in the rain.)</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>...or something like this:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>As a new WordPress user, you should go to <a href=\"https://localhost/wordpress/wp-admin/\">your dashboard</a> to delete this page and create new pages for your content. Have fun!</p>\n<!-- /wp:paragraph -->', 'Sample Page', '', 'publish', 'closed', 'open', '', 'sample-page', '', '', '2020-05-31 10:37:43', '2020-05-31 10:37:43', '', 0, 'https://localhost/wordpress/?page_id=2', 0, 'page', '', 0),
@@ -322,11 +251,6 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (7, 1, '2020-05-31 10:56:38', '2020-05-31 10:56:38', '', 'J0a8FyR', '', 'inherit', 'open', 'closed', '', 'j0a8fyr', '', '', '2020-05-31 10:56:38', '2020-05-31 10:56:38', '', 6, 'https://localhost/wordpress/wp-content/uploads/2020/05/J0a8FyR.mp4', 0, 'attachment', 'video/mp4', 0),
 (8, 1, '2020-05-31 10:59:04', '2020-05-31 10:59:04', '<!-- wp:heading {\"level\":4} -->\n<h4>Best site ever</h4>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>for ft_server project by ccaptain.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:video {\"id\":7} -->\n<figure class=\"wp-block-video\"><video controls src=\"https://localhost/wordpress/wp-content/uploads/2020/05/J0a8FyR.mp4\"></video></figure>\n<!-- /wp:video -->', 'Welcome to my site', '', 'inherit', 'closed', 'closed', '', '6-revision-v1', '', '', '2020-05-31 10:59:04', '2020-05-31 10:59:04', '', 6, 'https://localhost/wordpress/?p=8', 0, 'revision', '', 0);
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `wp_termmeta`
---
 
 CREATE TABLE `wp_termmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
@@ -335,12 +259,6 @@ CREATE TABLE `wp_termmeta` (
   `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `wp_terms`
---
-
 CREATE TABLE `wp_terms` (
   `term_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -348,18 +266,9 @@ CREATE TABLE `wp_terms` (
   `term_group` bigint(10) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Дамп данных таблицы `wp_terms`
---
-
 INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 (1, 'Uncategorized', 'uncategorized', 0);
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `wp_term_relationships`
---
 
 CREATE TABLE `wp_term_relationships` (
   `object_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
@@ -367,19 +276,10 @@ CREATE TABLE `wp_term_relationships` (
   `term_order` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Дамп данных таблицы `wp_term_relationships`
---
-
 INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_order`) VALUES
 (1, 1, 0),
 (6, 1, 0);
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `wp_term_taxonomy`
---
 
 CREATE TABLE `wp_term_taxonomy` (
   `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL,
@@ -390,18 +290,8 @@ CREATE TABLE `wp_term_taxonomy` (
   `count` bigint(20) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Дамп данных таблицы `wp_term_taxonomy`
---
-
 INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
 (1, 1, 'category', '', 0, 1);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `wp_usermeta`
---
 
 CREATE TABLE `wp_usermeta` (
   `umeta_id` bigint(20) UNSIGNED NOT NULL,
@@ -409,10 +299,6 @@ CREATE TABLE `wp_usermeta` (
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `wp_usermeta`
---
 
 INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
 (1, 1, 'nickname', 'ccaptain'),
@@ -434,12 +320,6 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (17, 1, 'wp_dashboard_quick_press_last_post_id', '4'),
 (18, 1, 'community-events-location', 'a:1:{s:2:\"ip\";s:10:\"172.17.0.0\";}');
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `wp_users`
---
-
 CREATE TABLE `wp_users` (
   `ID` bigint(20) UNSIGNED NOT NULL,
   `user_login` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -453,28 +333,14 @@ CREATE TABLE `wp_users` (
   `display_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Дамп данных таблицы `wp_users`
---
-
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
 (1, 'ccaptain', '$P$B/Y9lc6z8INK6j18U/npjyp9hkGj1k/', 'ccaptain', 'rockettoalgeria@gmail.com', 'https://localhost/wordpress', '2020-05-31 10:37:43', '', 0, 'ccaptain');
 
---
--- Индексы сохранённых таблиц
---
-
---
--- Индексы таблицы `wp_commentmeta`
---
 ALTER TABLE `wp_commentmeta`
   ADD PRIMARY KEY (`meta_id`),
   ADD KEY `comment_id` (`comment_id`),
   ADD KEY `meta_key` (`meta_key`(191));
 
---
--- Индексы таблицы `wp_comments`
---
 ALTER TABLE `wp_comments`
   ADD PRIMARY KEY (`comment_ID`),
   ADD KEY `comment_post_ID` (`comment_post_ID`),
@@ -483,32 +349,20 @@ ALTER TABLE `wp_comments`
   ADD KEY `comment_parent` (`comment_parent`),
   ADD KEY `comment_author_email` (`comment_author_email`(10));
 
---
--- Индексы таблицы `wp_links`
---
 ALTER TABLE `wp_links`
   ADD PRIMARY KEY (`link_id`),
   ADD KEY `link_visible` (`link_visible`);
 
---
--- Индексы таблицы `wp_options`
---
 ALTER TABLE `wp_options`
   ADD PRIMARY KEY (`option_id`),
   ADD UNIQUE KEY `option_name` (`option_name`),
   ADD KEY `autoload` (`autoload`);
 
---
--- Индексы таблицы `wp_postmeta`
---
 ALTER TABLE `wp_postmeta`
   ADD PRIMARY KEY (`meta_id`),
   ADD KEY `post_id` (`post_id`),
   ADD KEY `meta_key` (`meta_key`(191));
 
---
--- Индексы таблицы `wp_posts`
---
 ALTER TABLE `wp_posts`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `post_name` (`post_name`(191)),
@@ -516,125 +370,66 @@ ALTER TABLE `wp_posts`
   ADD KEY `post_parent` (`post_parent`),
   ADD KEY `post_author` (`post_author`);
 
---
--- Индексы таблицы `wp_termmeta`
---
 ALTER TABLE `wp_termmeta`
   ADD PRIMARY KEY (`meta_id`),
   ADD KEY `term_id` (`term_id`),
   ADD KEY `meta_key` (`meta_key`(191));
 
---
--- Индексы таблицы `wp_terms`
---
 ALTER TABLE `wp_terms`
   ADD PRIMARY KEY (`term_id`),
   ADD KEY `slug` (`slug`(191)),
   ADD KEY `name` (`name`(191));
 
---
--- Индексы таблицы `wp_term_relationships`
---
 ALTER TABLE `wp_term_relationships`
   ADD PRIMARY KEY (`object_id`,`term_taxonomy_id`),
   ADD KEY `term_taxonomy_id` (`term_taxonomy_id`);
 
---
--- Индексы таблицы `wp_term_taxonomy`
---
 ALTER TABLE `wp_term_taxonomy`
   ADD PRIMARY KEY (`term_taxonomy_id`),
   ADD UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
   ADD KEY `taxonomy` (`taxonomy`);
 
---
--- Индексы таблицы `wp_usermeta`
---
 ALTER TABLE `wp_usermeta`
   ADD PRIMARY KEY (`umeta_id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `meta_key` (`meta_key`(191));
 
---
--- Индексы таблицы `wp_users`
---
 ALTER TABLE `wp_users`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `user_login_key` (`user_login`),
   ADD KEY `user_nicename` (`user_nicename`),
   ADD KEY `user_email` (`user_email`);
 
---
--- AUTO_INCREMENT для сохранённых таблиц
---
-
---
--- AUTO_INCREMENT для таблицы `wp_commentmeta`
---
 ALTER TABLE `wp_commentmeta`
   MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT для таблицы `wp_comments`
---
 ALTER TABLE `wp_comments`
   MODIFY `comment_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT для таблицы `wp_links`
---
 ALTER TABLE `wp_links`
   MODIFY `link_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT для таблицы `wp_options`
---
 ALTER TABLE `wp_options`
   MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
---
--- AUTO_INCREMENT для таблицы `wp_postmeta`
---
 ALTER TABLE `wp_postmeta`
   MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
---
--- AUTO_INCREMENT для таблицы `wp_posts`
---
 ALTER TABLE `wp_posts`
   MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
---
--- AUTO_INCREMENT для таблицы `wp_termmeta`
---
 ALTER TABLE `wp_termmeta`
   MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT для таблицы `wp_terms`
---
 ALTER TABLE `wp_terms`
   MODIFY `term_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT для таблицы `wp_term_taxonomy`
---
 ALTER TABLE `wp_term_taxonomy`
   MODIFY `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT для таблицы `wp_usermeta`
---
 ALTER TABLE `wp_usermeta`
   MODIFY `umeta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
---
--- AUTO_INCREMENT для таблицы `wp_users`
---
 ALTER TABLE `wp_users`
   MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
