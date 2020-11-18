@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ftps-service
+  annotations:
+    metallb.universe.tf/allow-shared-ip: shared
 spec:
   selector:
     app: vsftpd
@@ -14,10 +16,9 @@ spec:
       protocol: TCP
       port: 21
       targetPort: 21
-    - name: passive0
+    - name: passive
       protocol: TCP
-      port: 30000 
-      targetPort: 3000
+      port: 21100
   type: LoadBalancer
 ---
 apiVersion: v1
@@ -70,7 +71,7 @@ spec:
         ports:
                 - containerPort: 20
                 - containerPort: 21
-                - containerPort: 30000
+                - containerPort: 21100
         volumeMounts:
         - name: ftps
           mountPath: /var/lib/ftp
