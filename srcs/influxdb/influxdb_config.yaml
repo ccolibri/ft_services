@@ -13,12 +13,10 @@ data:
     [data]
       dir = "/var/lib/influxdb/data"
       wal-dir = "/var/lib/influxdb/wal"
-
     [http]
       enabled = true
       auth-enabled = false
       bind-address = ":8086"
-
     [[graphite]]
       enabled = false
       database = "telegraf"

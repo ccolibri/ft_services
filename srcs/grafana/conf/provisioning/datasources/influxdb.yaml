@@ -10,5 +10,5 @@ datasources:
   version: 1
   editable: false
   basicAuth: true
-  basicAuthUser: admin
-  basicAuthPassword: admin
+  basicAuthUser: user
+  basicAuthPassword: user
