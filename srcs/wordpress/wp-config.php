@@ -29,7 +29,11 @@ define( 'DB_USER', 'ccaptain' );
 define( 'DB_PASSWORD', 'admin' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'mariadb-service' );
+define('DB_HOST', 'mariadb-service:3306');
+
+define('WP_HOME', 'http://192.168.64.20:5050/' );
+
+define('WP_SITEURL', 'http://192.168.64.20:5050/' );
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );

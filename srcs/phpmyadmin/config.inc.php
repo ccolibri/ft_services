@@ -1,13 +1,14 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * phpMyAdmin sample configuration, you can use it as base for
  * manual configuration. For easier setup you can use setup/
  *
  * All directives are explained in documentation in the doc/ folder
  * or at <https://docs.phpmyadmin.net/>.
+ *
+ * @package PhpMyAdmin
  */
-
-declare(strict_types=1);
 
 /**
  * This is needed for cookie based authentication to encrypt password in
@@ -24,16 +25,13 @@ $i = 0;
  * First server
  */
 $i++;
+
 /* Authentication type */
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
-/* Server parameters */
-$cfg['Servers'][$i]['host'] = 'mariadb-service';
-$cfg['Servers'][$i]['port'] = 3306;
-$cfg['Servers'][$i]['connect_type'] = 'tcp';
-$cfg['Servers'][$i]['compress'] = false;
-$cfg['Servers'][$i]['AllowNoPassword'] = true;
-$cfg['Servers'][$i]['extension'] = 'mysqli';
-
+$cfg['Servers'][$i]['user'] = 'ccaptain';
+$cfg['Servers'][$i]['password'] = 'ccaptain';
+$cfg['Servers'][$i]['host'] = "mysql";
+$cfg['Servers'][$i]['port'] = "3306";
 /**
  * phpMyAdmin configuration storage settings.
  */
@@ -41,11 +39,11 @@ $cfg['Servers'][$i]['extension'] = 'mysqli';
 /* User used to manipulate with storage */
 // $cfg['Servers'][$i]['controlhost'] = '';
 // $cfg['Servers'][$i]['controlport'] = '';
-//$cfg['Servers'][$i]['controluser'] = 'ccaptain';
-//$cfg['Servers'][$i]['controlpass'] = 'admin';
+//$cfg['Servers'][$i]['controluser'] = 'root';
+//$cfg['Servers'][$i]['controlpass'] = '';
 
 /* Storage database and tables */
-//$cfg['Servers'][$i]['pmadb'] = 'wpdb';
+// $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
 //$cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
 //$cfg['Servers'][$i]['relation'] = 'pma__relation';
 //$cfg['Servers'][$i]['table_info'] = 'pma__table_info';
@@ -65,7 +63,6 @@ $cfg['Servers'][$i]['extension'] = 'mysqli';
 //$cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
 //$cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
 //$cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
-//$cfg['Servers'][$i]['extension'] = 'mysql';
 
 /**
  * End of servers configuration
@@ -76,7 +73,9 @@ $cfg['Servers'][$i]['extension'] = 'mysqli';
  */
 $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';
-
+$cfg['TempDir'] = '/tmp';
+$cfg['AllowThirdPartyFraming'] = true;
+$cfg['PmaAbsoluteUri_DisableWarning'] = TRUE;
 /**
  * Whether to display icons or text or both icons and text in table row
  * action segment. Value can be either of 'icons', 'text' or 'both'.
@@ -155,4 +154,3 @@ $cfg['SaveDir'] = '';
  * You can find more configuration options in the documentation
  * in the doc/ folder or at <https://docs.phpmyadmin.net/>.
  */
-?>

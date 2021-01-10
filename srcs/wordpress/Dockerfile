@@ -1,19 +1,23 @@
 FROM alpine:latest
 
 RUN apk add php7 php7-fpm php7-opcache php7-gd php7-mysqli php7-zlib\
-			php7-curl php7-mbstring php7-json php7-session mysql-client supervisor
+			php7-curl php7-mbstring php7-json php7-session mysql-client
+
+RUN		apk add openrc nginx php-fpm
+RUN		adduser -D -g 'www' www
+RUN		mkdir /www && chown -R www:www /var/lib/nginx && chown -R www:www /www && mkdir -p /run/nginx
 
 RUN wget https://wordpress.org/latest.tar.gz
 RUN tar -zxvf latest.tar.gz
 RUN rm -f latest.tar.gz
-RUN mv wordpress /etc/
+RUN mv wordpress /www/
 
-COPY wp-config.php /etc/wordpress/
-COPY wordpress.sql /tmp/
-COPY supervisord.conf /etc/supervisord.conf
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY wp-config.php /www/wordpress/
 COPY launch-wordpress.sh /tmp/
-COPY entrypoint.sh /tmp/
+
+RUN chmod +x /tmp/launch-wordpress.sh
 
 EXPOSE 5050
 
-ENTRYPOINT ["sh", "/tmp/entrypoint.sh"]
+ENTRYPOINT ["sh", "/tmp/launch-wordpress.sh"]
