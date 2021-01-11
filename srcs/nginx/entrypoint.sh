@@ -1,9 +1,7 @@
-mkdir -p /var/run/nginx
+#!/bin/sh
 
-ssh-keygen -t rsa -f /etc/ssh/ssh_rsa_key -N ""
-adduser --disabled-password admin
-echo "admin:admin" | chpasswd
-
-/usr/sbin/sshd
-
-nginx -g "daemon off;"
+rc default
+rc-service sshd start
+ssh-keygen -A
+rc-service sshd stop
+/usr/bin/supervisord -c /etc/supervisord.conf

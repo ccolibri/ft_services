@@ -30,7 +30,7 @@ $i++;
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
 $cfg['Servers'][$i]['user'] = 'ccaptain';
 $cfg['Servers'][$i]['password'] = 'ccaptain';
-$cfg['Servers'][$i]['host'] = "mysql";
+$cfg['Servers'][$i]['host'] = "mariadb-service";
 $cfg['Servers'][$i]['port'] = "3306";
 /**
  * phpMyAdmin configuration storage settings.

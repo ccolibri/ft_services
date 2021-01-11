@@ -1,6 +1,7 @@
-php -S 0.0.0.0:5000 -t /etc/phpmyadmin/
+mkdir www/phpmyadmin/tmp
+chmod 777 www/phpmyadmin/tmp
 
 mkdir /run/nginx
 chmod 744 /run/nginx
 
-nginx -g "daemon off;"
+/usr/bin/supervisord -c /etc/supervisord.conf
