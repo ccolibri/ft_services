@@ -1,6 +1,6 @@
 #!/bin/sh
 
-minikube start --driver=hyperkit --cpus=2 --memory='2000' --disk-size 5000MB
+minikube start --driver=hyperkit --cpus=2 --memory='2500' --disk-size 5000MB
 minikube addons enable metrics-server
 minikube addons enable dashboard
 eval $(minikube -p minikube docker-env)
