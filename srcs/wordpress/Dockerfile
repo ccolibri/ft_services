@@ -7,7 +7,7 @@ RUN		apk add openrc nginx php-fpm supervisor
 RUN		adduser -D -g 'www' www
 RUN		mkdir /www && chown -R www:www /var/lib/nginx && chown -R www:www /www && mkdir -p /run/nginx
 
-RUN wget https://wordpress.org/latest.tar.gz
+ADD https://wordpress.org/latest.tar.gz ./
 RUN tar -zxvf latest.tar.gz
 RUN rm -f latest.tar.gz
 RUN mv wordpress /www/

@@ -1,17 +1,15 @@
 FROM alpine:latest
 
 RUN apk update
-RUN apk add mysql mysql-client
+RUN apk add mysql mysql-client mariadb mariadb-client
 
-RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld
-
-COPY mariadb-server.cnf /etc/my.cnf.d/mariadb-server.cnf
-COPY mysql-init /tmp/
-COPY wordpress.sql .
-COPY entrypoint.sh /tmp/
+COPY mysql-init.sh ./
+COPY wordpress-dump.sql ./
+COPY entrypoint.sh ./
+RUN chmod +x mysql-init.sh
 
 VOLUME ["/var/lib/mysql"]
 
 EXPOSE 3306
 
-ENTRYPOINT ["sh", "/tmp/entrypoint.sh"]
+ENTRYPOINT ["sh", "entrypoint.sh"]
